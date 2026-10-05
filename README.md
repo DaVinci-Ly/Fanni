@@ -59,10 +59,28 @@ python3 -m http.server 8000
 
 ## مصادر الصور
 
-كل الصور من Unsplash وPexels، ورخصتاهما تسمحان بالاستخدام التجاري.
+كل الصور من Unsplash وPexels، ورخصتاهما تسمحان بالاستخدام التجاري. يمرّ كلّها
+بمعالجة لونية واحدة دافئة وناعمة في `tools/build_photos.py` حتى تبدو مجموعة واحدة.
 
 | الملف | المصدر |
 |---|---|
+| hero | [Pexels 5874814](https://www.pexels.com/photo/5874814/) — لودر CAT في ضباب ذهبي |
+| workshop | [Pexels 5845964](https://www.pexels.com/photo/5845964/) — جلخ حديد وشرر |
+| generator | [Pexels 18816918](https://www.pexels.com/photo/18816918/) — فنيّان مع مولد محمول |
+| parts | [Pexels 4069389](https://www.pexels.com/photo/4069389/) — تروس توقيت محرك |
+| building | [Pexels 39298378](https://www.pexels.com/photo/39298378/) — صفوف طوب في الشمس |
+| port | [Pexels 38305352](https://www.pexels.com/photo/38305352/) — حاويات عند الغروب |
+| products-head | [Unsplash](https://images.unsplash.com/photo-1755237449468-e70840025313) — طاولة عمل ونافذة |
+| shop-interior | [Pexels 32305004](https://www.pexels.com/photo/32305004/) — ورشة صيانة |
+| wrenches | [Pexels 16243260](https://www.pexels.com/photo/16243260/) — مفاتيح معلّقة |
+| engine | [Pexels 34640514](https://www.pexels.com/photo/34640514/) — محرك ديزل على منصّة |
+| genset | [Unsplash](https://images.unsplash.com/photo-1759692071712-adc78a8516c8) — مولد صناعي مفتوح |
+| turbo | [Pexels 7565160](https://www.pexels.com/photo/7565160/) — شاحن توربيني |
+| blocks | [Pexels 39370865](https://www.pexels.com/photo/39370865/) — طوب مفرّغ |
+| cement | [Pexels 29817952](https://www.pexels.com/photo/29817952/) — أكياس إسمنت |
+| contact-head | [Pexels 31762068](https://www.pexels.com/photo/31762068/) — حفّارة عند الغروب |
+
+---|---|
 | hero | [Unsplash](https://images.unsplash.com/photo-1610477865545-37711c53144d) — حفّارة CASE في ساحة معدات |
 | workshop | [Unsplash](https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1) — لحام |
 | generator | [Pexels 5693845](https://www.pexels.com/photo/5693845/) — مولد صناعي |

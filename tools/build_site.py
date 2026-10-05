@@ -274,7 +274,7 @@ def header(lang, slug, abase, pbase):
         {nav_items}
       </ul>
       <div class="nav__extra">
-        <a class="btn btn--primary btn--block" href="tel:{PHONE_INTL}">{ICON['phone']}<span>{t['call_us']}</span></a>
+        <a class="btn btn--light btn--block" href="tel:{PHONE_INTL}">{ICON['phone']}<span>{t['call_us']}</span></a>
         <a class="btn btn--wa btn--block" href="{WA}" target="_blank" rel="noopener">{ICON['wa']}<span>{t['wa']}</span></a>
         {lang_link}
       </div>
@@ -282,7 +282,7 @@ def header(lang, slug, abase, pbase):
 
     <div class="header__actions">
       {lang_link}
-      <a class="btn btn--primary btn--sm header__call" href="tel:{PHONE_INTL}">{ICON['phone']}<span class="num">{L['PHONE']}</span></a>
+      <a class="btn btn--ghost btn--sm header__call" href="tel:{PHONE_INTL}">{ICON['phone']}<span class="num">{L['PHONE']}</span></a>
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"
               aria-label="{t['menu_open']}" data-label-open="{t['menu_open']}" data-label-close="{t['menu_close']}">
         <span class="nav-toggle__bars" aria-hidden="true"></span>
