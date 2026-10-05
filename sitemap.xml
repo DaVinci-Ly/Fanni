@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://fanni.ly/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/products.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/products.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/products.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/about.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/about.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/contact.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/contact.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/privacy.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/terms.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/terms.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/products.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/products.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/products.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/about.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/about.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/contact.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/contact.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/privacy.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://fanni.ly/en/terms.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fanni.ly/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fanni.ly/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fanni.ly/terms.html"/>
+  </url>
+</urlset>

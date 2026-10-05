@@ -1,0 +1,107 @@
+<section class="pagehead">
+  <div class="pagehead__bg" aria-hidden="true">
+    {{img:parts|Close-up of a diesel engine and its fuel pump|(min-width: 700px) 55vw, 100vw|eager}}
+  </div>
+  <div class="wrap">
+    <ol class="crumbs">
+      <li><a href="{{base}}index.html">Home</a></li>
+      <li aria-current="page">Contact</li>
+    </ol>
+    <h1>Contact us</h1>
+    <p class="lead">The quickest way to reach us is by phone or WhatsApp. You can also leave a message here and we’ll get back to you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split--top">
+    <div class="reveal">
+      <h2>Our details</h2>
+      <p class="muted">These are our only official channels.</p>
+      <ul class="contact-list">
+        <li>
+          <a href="tel:{{PHONE_INTL}}">{{icon:phone}}
+            <span><span class="k">Phone</span><span class="v"><span class="num">{{PHONE}}</span></span></span>{{icon:arrow}}</a>
+        </li>
+        <li>
+          <a href="{{WA}}" target="_blank" rel="noopener">{{icon:wa}}
+            <span><span class="k">WhatsApp</span><span class="v"><span class="num">{{PHONE}}</span></span></span>{{icon:arrow}}</a>
+        </li>
+        <li>
+          <a href="mailto:{{EMAIL}}">{{icon:mail}}
+            <span><span class="k">Email</span><span class="v">{{EMAIL}}</span></span>{{icon:arrow}}</a>
+        </li>
+        <li>
+          <a href="{{MAPS}}" target="_blank" rel="noopener">{{icon:pin}}
+            <span><span class="k">Address</span><span class="v">{{ADDRESS}}, Libya</span></span>{{icon:arrow}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <h2>Leave a message</h2>
+      <p class="muted">Tell us what you need, and we’ll call you or reply by email.</p>
+
+      <form class="form" action="https://formsubmit.co/{{EMAIL}}" method="POST">
+        <input type="hidden" name="_subject" value="New message from fanni.ly (English)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="{{THANKS_URL}}">
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="Name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="Phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+218 9X XXX XXXX">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email <span class="muted">(optional)</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="f-topic">Category</label>
+          <select id="f-topic" name="Category">
+            <option>Workshop equipment</option>
+            <option>Generators</option>
+            <option>Spare parts</option>
+            <option>Building materials</option>
+            <option>Import request for an unlisted item</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="Message" required placeholder="Item name or part number, and the quantity if you know it."></textarea>
+        </div>
+
+        <button class="btn btn--navy" type="submit"><span>Send message</span>{{icon:arrow}}</button>
+        <p class="form__note">We only use your details to reply to you. See our <a class="text-link" href="{{base}}privacy.html">privacy notice</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper-2">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <div class="reveal">
+        <p class="kicker">Location</p>
+        <h2>Al-Sawani Road, Al-Karimiya</h2>
+      </div>
+      <p class="reveal">Tripoli, Libya.</p>
+    </div>
+    <div class="map reveal">
+      <iframe src="https://www.google.com/maps?q={{GEO}}&amp;hl=en&amp;z=16&amp;output=embed" title="Al-Mutakhassis Al-Fanni on the map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="btn-row reveal">
+      <a class="btn btn--navy" href="{{MAPS}}" target="_blank" rel="noopener">{{icon:pin}}<span>Open in Google Maps</span></a>
+    </div>
+  </div>
+</section>
