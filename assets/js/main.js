@@ -25,23 +25,32 @@
     onScroll();
   }
 
-  /* قائمة الجوال: تُغلق عند النقر خارجها أو على رابط أو بزر Esc */
-  var menu = doc.querySelector(".menu");
-  if (menu) {
-    menu.addEventListener("toggle", function () {
-      doc.documentElement.classList.toggle("menu-open", menu.open);
-    });
-    doc.addEventListener("click", function (e) {
-      if (menu.open && (!menu.contains(e.target) || e.target.closest("a"))) menu.open = false;
+  /* قائمة الجوال: زر يفتح لوحة الروابط ويغلقها */
+  var toggle = doc.querySelector(".nav-toggle");
+  var nav = doc.getElementById("site-nav");
+  if (header && toggle && nav) {
+    var isOpen = function () { return toggle.getAttribute("aria-expanded") === "true"; };
+    var setOpen = function (open, restoreFocus) {
+      header.classList.toggle("is-open", open);
+      doc.documentElement.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", toggle.getAttribute(open ? "data-label-close" : "data-label-open"));
+      if (open) {
+        var first = nav.querySelector("a");
+        if (first) first.focus({ preventScroll: true });
+      } else if (restoreFocus) {
+        toggle.focus();
+      }
+    };
+    toggle.addEventListener("click", function () { setOpen(!isOpen()); });
+    nav.addEventListener("click", function (e) {
+      if (isOpen() && e.target.closest("a")) setOpen(false);
     });
     doc.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && menu.open) {
-        menu.open = false;
-        menu.querySelector("summary").focus();
-      }
+      if (e.key === "Escape" && isOpen()) setOpen(false, true);
     });
     window.matchMedia("(min-width: 961px)").addEventListener("change", function (mq) {
-      if (mq.matches) menu.open = false;
+      if (mq.matches && isOpen()) setOpen(false);
     });
   }
 

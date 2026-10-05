@@ -46,7 +46,7 @@ LANGS = {
         'other': ('en', 'English'),
         't': {
             'skip': 'تخطَّ إلى المحتوى', 'home_label': 'الصفحة الرئيسية', 'main_nav': 'التنقل الرئيسي',
-            'menu': 'القائمة', 'call': 'اتصال', 'call_us': 'اتصل بنا', 'wa': 'واتساب',
+            'menu_open': 'فتح القائمة', 'menu_close': 'إغلاق القائمة', 'call': 'اتصال', 'call_us': 'اتصل بنا', 'wa': 'واتساب',
             'about': 'نستورد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء، ومقرّنا في طرابلس.',
             'site': 'الموقع', 'contact': 'تواصل',
             'rights': 'شركة المتخصص الفني — جميع الحقوق محفوظة.',
@@ -83,7 +83,7 @@ LANGS = {
         'other': ('ar', 'العربية'),
         't': {
             'skip': 'Skip to content', 'home_label': 'Home', 'main_nav': 'Main navigation',
-            'menu': 'Menu', 'call': 'Call', 'call_us': 'Call us', 'wa': 'WhatsApp',
+            'menu_open': 'Open menu', 'menu_close': 'Close menu', 'call': 'Call', 'call_us': 'Call us', 'wa': 'WhatsApp',
             'about': 'We import workshop equipment, generators, heavy machinery spare parts and building materials. Based in Tripoli, Libya.',
             'site': 'Site', 'contact': 'Contact',
             'rights': 'Al-Mutakhassis Al-Fanni. All rights reserved.',
@@ -126,8 +126,6 @@ ICON = {
     'globe': svg('<circle cx="12" cy="12" r="9"/><path d="M3.2 9h17.6M3.2 15h17.6M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/>'),
     'arrow': svg('<path d="M19 12H5m6-6-6 6 6 6"/>', cls='icon arrow'),
     'check': svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),
-    'menu': svg('<path d="M4 8h16M8 16h12"/>', cls='icon icon-open'),
-    'close': svg('<path d="M6 6l12 12M18 6 6 18"/>', cls='icon icon-close'),
     'wa': svg('<path d="M12.04 2.25c-5.4 0-9.79 4.39-9.79 9.79 0 1.72.45 3.4 1.31 4.88L2.3 21.75l4.96-1.3a9.75 9.75 0 0 0 4.78 1.25h.01c5.4 0 9.79-4.39 9.79-9.79s-4.4-9.66-9.8-9.66zm0 1.75a8.04 8.04 0 0 1 8.04 7.95 8.04 8.04 0 0 1-8.03 8.04h-.01a8.1 8.1 0 0 1-4.12-1.13l-.3-.17-3.06.8.82-2.98-.19-.31a8.03 8.03 0 0 1 6.85-12.2zm-3.6 4.03c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.18 1.75 2.79 4.28 3.8 2.1.83 2.53.67 2.99.63.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29-.25-.13-1.48-.73-1.71-.81-.23-.09-.4-.13-.56.12-.17.25-.65.81-.79.98-.15.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.01-.38.11-.5.11-.11.25-.29.38-.44.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.35-.77-1.85-.2-.48-.4-.42-.55-.42h-.24z"/>', fill=True),
 }
 
@@ -248,21 +246,22 @@ def lang_href(lang, slug, base):
 def header(lang, slug, abase, pbase):
     L, t = LANGS[lang], LANGS[lang]['t']
     active = slug if slug in NAV_PAGES else None
-    links, mlinks = [], []
+    items = []
     for key, label in zip(NAV_PAGES, L['nav']):
         cur = ' aria-current="page"' if key == active else ''
-        links.append(f'<a href="{pbase}{file_of(key)}"{cur}>{label}</a>')
-        mlinks.append(f'<a href="{pbase}{file_of(key)}"{cur}><span>{label}</span>{ICON["arrow"]}</a>')
+        items.append(f'<li><a href="{pbase}{file_of(key)}"{cur}>{label}</a></li>')
+    nav_items = ('\n' + ' ' * 8).join(items)
     other_code, other_label = L['other']
     lh = lang_href(lang, slug, abase)
-    brand_href = f'{pbase}{file_of("index")}'
+    lang_link = (f'<a class="lang-link" href="{lh}" lang="{other_code}" hreflang="{other_code}">'
+                 f'{ICON["globe"]}<span>{other_label}</span></a>')
     return f'''
 <body>
 <a class="skip-link" href="#main">{t['skip']}</a>
 
 <header class="header" data-header>
-  <div class="wrap header__inner">
-    <a class="brand" href="{brand_href}" aria-label="{L['NAME']} — {t['home_label']}">
+  <div class="wrap header__bar">
+    <a class="brand" href="{pbase}{file_of('index')}" aria-label="{L['NAME']} — {t['home_label']}">
       <img class="brand__mark" src="{abase}assets/img/brand/mark.png" alt="" width="160" height="164">
       <span class="brand__text">
         <span class="brand__name">{L['NAME']}</span>
@@ -270,29 +269,24 @@ def header(lang, slug, abase, pbase):
       </span>
     </a>
 
-    <nav class="nav" aria-label="{t['main_nav']}">
-      {chr(10).join('      ' + l for l in links).strip()}
+    <nav class="nav" id="site-nav" aria-label="{t['main_nav']}">
+      <ul class="nav__list">
+        {nav_items}
+      </ul>
+      <div class="nav__extra">
+        <a class="btn btn--primary btn--block" href="tel:{PHONE_INTL}">{ICON['phone']}<span>{t['call_us']}</span></a>
+        <a class="btn btn--wa btn--block" href="{WA}" target="_blank" rel="noopener">{ICON['wa']}<span>{t['wa']}</span></a>
+        {lang_link}
+      </div>
     </nav>
 
-    <div class="header__end">
-      <a class="header__lang" href="{lh}" lang="{other_code}" hreflang="{other_code}">{other_label}</a>
-      <a class="header__call" href="tel:{PHONE_INTL}">{ICON['phone']}<span class="num">{L['PHONE']}</span></a>
-      <a class="header__dial" href="tel:{PHONE_INTL}" aria-label="{t['call_us']}">{ICON['phone']}</a>
-      <details class="menu">
-        <summary aria-label="{t['menu']}">{ICON['menu']}{ICON['close']}</summary>
-        <div class="menu__panel">
-          <nav class="menu__nav" aria-label="{t['menu']}">
-            {chr(10).join('            ' + l for l in mlinks).strip()}
-          </nav>
-          <div class="menu__foot">
-            <div class="btn-row">
-              <a class="btn btn--brass" href="tel:{PHONE_INTL}">{ICON['phone']}<span>{t['call']}</span></a>
-              <a class="btn btn--line" href="{WA}" target="_blank" rel="noopener">{ICON['wa']}<span>{t['wa']}</span></a>
-            </div>
-            <a class="menu__lang" href="{lh}" lang="{other_code}" hreflang="{other_code}">{ICON['globe']}<span>{other_label}</span></a>
-          </div>
-        </div>
-      </details>
+    <div class="header__actions">
+      {lang_link}
+      <a class="btn btn--primary btn--sm header__call" href="tel:{PHONE_INTL}">{ICON['phone']}<span class="num">{L['PHONE']}</span></a>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"
+              aria-label="{t['menu_open']}" data-label-open="{t['menu_open']}" data-label-close="{t['menu_close']}">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
 </header>
