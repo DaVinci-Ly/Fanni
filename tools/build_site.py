@@ -184,7 +184,7 @@ def head(lang, slug, base):
     elif has('ar', slug) and has('en', slug):
         for code in ('ar', 'en'):
             lines.append(f'<link rel="alternate" hreflang="{code}" href="{url_of(code, slug)}">')
-        lines.append(f'<link rel="alternate" hreflang="x-default" href="{url_of("en", slug)}">')
+        lines.append(f'<link rel="alternate" hreflang="x-default" href="{url_of("ar", slug)}">')
     alt = '\n'.join(lines)
     other_locale = LANGS['en' if lang == 'ar' else 'ar']['locale']
     pre = ''
@@ -197,13 +197,30 @@ def head(lang, slug, base):
     if lang == 'ar' and slug == 'index':
         language_script = '''<script>
 (function () {
-  var language = 'en';
+  var language = null;
   try {
-    if (localStorage.getItem('fanni-language') === 'ar') language = 'ar';
+    var savedLanguage = localStorage.getItem('fanni-language');
+    if (savedLanguage === 'ar' || savedLanguage === 'en') language = savedLanguage;
   } catch (error) {
     console.warn('Could not read the saved language preference', error);
   }
-  if (/[?&]lang=ar(?:&|$)/.test(location.search)) language = 'ar';
+  if (!language) {
+    language = 'ar';
+    var browserLanguages = navigator.languages || [navigator.language];
+    for (var i = 0; i < browserLanguages.length; i++) {
+      var browserLanguage = (browserLanguages[i] || '').toLowerCase();
+      if (browserLanguage.indexOf('ar') === 0) {
+        language = 'ar';
+        break;
+      }
+      if (browserLanguage.indexOf('en') === 0) {
+        language = 'en';
+        break;
+      }
+    }
+  }
+  var requestedLanguage = location.search.match(/[?&]lang=(ar|en)(?:&|$)/);
+  if (requestedLanguage) language = requestedLanguage[1];
   if (language === 'en' && /^\\/(?:index\\.html)?$/.test(location.pathname)) {
     location.replace('/en/index.html' + location.search + location.hash);
   }
@@ -438,7 +455,7 @@ def build():
         alts = ''.join(
             f'\n    <xhtml:link rel="alternate" hreflang="{c}" href="{url_of(c, slug)}"/>'
             for c in LANGS if has(c, slug))
-        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("en", slug)}"/>'
+        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("ar", slug)}"/>'
         items.append(f'  <url>\n    <loc>{url_of(lang, slug)}</loc>\n    <lastmod>{today}</lastmod>\n'
                      f'    <priority>{prio.get(slug, "0.3")}</priority>{alts}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
