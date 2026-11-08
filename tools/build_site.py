@@ -47,29 +47,29 @@ LANGS = {
         't': {
             'skip': 'تخطَّ إلى المحتوى', 'home_label': 'الصفحة الرئيسية', 'main_nav': 'التنقل الرئيسي',
             'menu_open': 'فتح القائمة', 'menu_close': 'إغلاق القائمة', 'call': 'اتصال', 'call_us': 'اتصل بنا', 'wa': 'واتساب',
-            'about': 'نستورد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء، ومقرّنا في طرابلس.',
+            'about': 'نستورد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء، ومقرّنا في طرابلس',
             'site': 'الموقع', 'contact': 'تواصل',
-            'rights': 'شركة المتخصص الفني — جميع الحقوق محفوظة.',
+            'rights': 'شركة المتخصص الفني — جميع الحقوق محفوظة',
             'reg': f'سجل تجاري <span class="num">{REG["cr"]}</span> · سجل المستوردين <span class="num">{REG["importers"]}</span>',
             'privacy': 'الخصوصية', 'terms': 'شروط الاستخدام', 'closing': 'روابط ختامية',
             'credit': 'تصميم وتطوير <a href="https://ldd.ly" target="_blank" rel="noopener">ديوان البيانات الليبي</a>',
             'logo_alt': 'شعار شركة المتخصص الفني', 'lang_label': 'اللغة',
-            'ld_desc': 'استيراد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء.',
+            'ld_desc': 'استيراد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء',
             'street': 'طريق السواني، الكريمية', 'city': 'طرابلس', 'country': 'ليبيا',
         },
         'pages': {
             'index': ('المتخصص الفني | معدات الورش والمولدات وقطع الغيار ومواد البناء في طرابلس',
-                      'شركة المتخصص الفني في طرابلس تستورد معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء. اسألنا عن السعر والتوفر على 0913133083.'),
+                      'تستورد شركة المتخصص الفني في طرابلس معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء. للاستفسار عن السعر والتوفر اتصل على 0913133083'),
             'products': ('المنتجات | المتخصص الفني',
-                         'معدات الورش، المولدات، قطع غيار الآليات الثقيلة، ومواد البناء: أمثلة لما تستورده شركة المتخصص الفني في طرابلس.'),
+                         'أمثلة على معدات الورش والمولدات وقطع غيار الآليات الثقيلة ومواد البناء التي تستوردها شركة المتخصص الفني في طرابلس'),
             'about': ('عن الشركة | المتخصص الفني',
-                      'شركة المتخصص الفني لاستيراد الآلات والمعدات الثقيلة وقطع غيارها، شركة ليبية ذات مسؤولية محدودة مسجّلة في طرابلس.'),
+                      'شركة المتخصص الفني لاستيراد الآلات والمعدات الثقيلة وقطع غيارها، شركة ليبية ذات مسؤولية محدودة مسجّلة في طرابلس'),
             'contact': ('تواصل معنا | المتخصص الفني',
-                        'هاتف وواتساب 0913133083، البريد info@fanni.ly، والعنوان طريق السواني، الكريمية — طرابلس.'),
-            'privacy': ('الخصوصية | المتخصص الفني', 'كيف نتعامل مع البيانات التي ترسلها لنا عبر الموقع.'),
-            'terms': ('شروط الاستخدام | المتخصص الفني', 'شروط استخدام موقع شركة المتخصص الفني.'),
-            'thanks': ('وصلتنا رسالتك | المتخصص الفني', 'شكرًا لتواصلك مع المتخصص الفني.'),
-            '404': ('الصفحة غير موجودة | المتخصص الفني', 'الصفحة المطلوبة غير موجودة.'),
+                        'للتواصل مع شركة المتخصص الفني في طرابلس اتصل أو راسل واتساب على 0913133083 أو اكتب إلى info@fanni.ly'),
+            'privacy': ('الخصوصية | المتخصص الفني', 'كيفية استخدام البيانات التي ترسلها لنا عبر الموقع'),
+            'terms': ('شروط الاستخدام | المتخصص الفني', 'شروط استخدام موقع شركة المتخصص الفني'),
+            'thanks': ('وصلتنا رسالتك | المتخصص الفني', 'شكرًا لتواصلك مع المتخصص الفني'),
+            '404': ('الصفحة غير موجودة | المتخصص الفني', 'الصفحة المطلوبة غير موجودة'),
         },
     },
     'en': {
@@ -184,7 +184,7 @@ def head(lang, slug, base):
     elif has('ar', slug) and has('en', slug):
         for code in ('ar', 'en'):
             lines.append(f'<link rel="alternate" hreflang="{code}" href="{url_of(code, slug)}">')
-        lines.append(f'<link rel="alternate" hreflang="x-default" href="{url_of("ar", slug)}">')
+        lines.append(f'<link rel="alternate" hreflang="x-default" href="{url_of("en", slug)}">')
     alt = '\n'.join(lines)
     other_locale = LANGS['en' if lang == 'ar' else 'ar']['locale']
     pre = ''
@@ -193,9 +193,26 @@ def head(lang, slug, base):
         pre = (f'\n<link rel="preload" as="image" href="{base}assets/img/photos/{n}-800.webp" '
                f'imagesrcset="{base}assets/img/photos/{n}-800.webp 800w, {base}assets/img/photos/{n}-1600.webp 1600w" '
                f'imagesizes="(min-width: 900px) 55vw, 100vw" fetchpriority="high">')
+    language_script = ''
+    if lang == 'ar' and slug == 'index':
+        language_script = '''<script>
+(function () {
+  var language = 'en';
+  try {
+    if (localStorage.getItem('fanni-language') === 'ar') language = 'ar';
+  } catch (error) {
+    console.warn('Could not read the saved language preference', error);
+  }
+  if (/[?&]lang=ar(?:&|$)/.test(location.search)) language = 'ar';
+  if (language === 'en' && /^\\/(?:index\\.html)?$/.test(location.pathname)) {
+    location.replace('/en/index.html' + location.search + location.hash);
+  }
+})();
+</script>'''
+    font_files = ('cairo-arabic', 'cairo-latin') if lang == 'ar' else ('cairo-latin',)
     fonts = '\n'.join(
         f'<link rel="preload" as="font" type="font/woff2" href="{base}assets/fonts/{f}.woff2" crossorigin>'
-        for f in (('plex-arabic-400', 'plex-arabic-700') if lang == 'ar' else ('plex-latin-400', 'plex-latin-700')))
+        for f in font_files)
     ld = '\n' + json_ld(lang) if slug == 'index' else ''
     return f'''<!doctype html>
 <html lang="{lang}" dir="{L['dir']}">
@@ -204,6 +221,7 @@ def head(lang, slug, base):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+{language_script}
 <meta name="theme-color" content="{THEME}">
 <link rel="canonical" href="{canonical}">
 {alt}
@@ -239,6 +257,8 @@ def lang_href(lang, slug, base):
     target = slug if has(other, slug) else 'index'
     if base == '/':
         return f'/{LANGS[other]["prefix"]}{file_of(target)}'
+    if lang == 'en' and slug == 'index':
+        return '../index.html?lang=ar'
     up = '../' if LANGS[lang]['prefix'] else ''
     return f'{up}{LANGS[other]["prefix"]}{file_of(target)}'
 
@@ -418,7 +438,7 @@ def build():
         alts = ''.join(
             f'\n    <xhtml:link rel="alternate" hreflang="{c}" href="{url_of(c, slug)}"/>'
             for c in LANGS if has(c, slug))
-        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("ar", slug)}"/>'
+        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("en", slug)}"/>'
         items.append(f'  <url>\n    <loc>{url_of(lang, slug)}</loc>\n    <lastmod>{today}</lastmod>\n'
                      f'    <priority>{prio.get(slug, "0.3")}</priority>{alts}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
